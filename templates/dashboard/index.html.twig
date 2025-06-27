@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container-fluid">
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text me-3">
+                    Bonjour, {{ user.email }}
+                </span>
+                <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Tableau de bord</h2>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success">
+                        <p>Cette page n'est accessible qu'aux utilisateurs connectés.</p>
+                        <hr>
+                        <p class="mb-0">Vous êtes connecté avec l'email : <strong>{{ user.email }}</strong></p>
+                        <p class="mb-0">Vos rôles : <strong>{{ user.roles|join(', ') }}</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
